@@ -11,7 +11,7 @@ import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
 import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.data.Stat;
-
+ 
 public class Polaczenie {
 	java.util.concurrent.CountDownLatch connectedSignal = new java.util.concurrent.CountDownLatch(
 			1);
@@ -23,7 +23,7 @@ public class Polaczenie {
 	Polaczenie() throws KeeperException, InterruptedException {
 
 		try {
-			zk = new ZooKeeper("localhost", 5000, new Watcher() {
+			zk = new ZooKeeper("10.16.20.1", 2181, new Watcher() {
 
 				public void process(WatchedEvent event) {
 					if (event.getState() == KeeperState.SyncConnected) {
